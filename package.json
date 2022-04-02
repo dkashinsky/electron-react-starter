@@ -1,0 +1,29 @@
+{
+  "name": "electron-react-starter",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Electron+React Starter Template",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkashinsky/electron-react-starter.git"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "starter"
+  ],
+  "author": "Dmitry Kashinsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dkashinsky/electron-react-starter/issues"
+  },
+  "homepage": "https://github.com/dkashinsky/electron-react-starter#readme",
+  "devDependencies": {
+    "electron": "^18.0.1"
+  }
+}
