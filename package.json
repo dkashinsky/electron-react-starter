@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "description": "Electron+React Starter Template",
   "scripts": {
-    "start:web": "vite serve ./src/ui",
-    "start:shell": "electron ./src/main.js",
+    "start:web": "vite serve ./src/renderer",
+    "start:shell": "electron ./src/main/index.js",
     "start": "npm-run-all --parallel start:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
