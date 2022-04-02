@@ -4,7 +4,10 @@ const { resolve } = require('path');
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      preload: resolve(__dirname, './preload.js'),
+    },
   });
 
   mainWindow.loadFile(resolve(__dirname, './ui/index.html'));
