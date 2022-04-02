@@ -10,7 +10,8 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadFile(resolve(__dirname, './ui/index.html'));
+  //mainWindow.loadFile(resolve(__dirname, './ui/index.html'));
+  mainWindow.loadURL('http://localhost:3000');
 };
 
 app.whenReady().then(() => {
