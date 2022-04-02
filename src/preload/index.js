@@ -1,12 +1,17 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector);
-    if (element) {
-      element.innerText = text;
-    }
-  };
+const { contextBridge } = require('electron');
+
+const getVersions = () => {
+  const versions = {};
 
   for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type]);
+    versions[type] = process.versions[type];
   }
-});
+
+  return versions;
+};
+
+const bridge = {
+  versions: getVersions(),
+};
+
+contextBridge.exposeInMainWorld('bridge', bridge);
