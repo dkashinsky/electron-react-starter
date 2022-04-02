@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron');
+const { contextBridge, ipcRenderer } = require('electron');
 
 const getVersions = () => {
   const versions = {};
@@ -10,8 +10,13 @@ const getVersions = () => {
   return versions;
 };
 
+const fs = {
+  readCurrentFolder : () => ipcRenderer.invoke('fs:current-folder'),
+};
+
 const bridge = {
   versions: getVersions(),
+  fs,
 };
 
 contextBridge.exposeInMainWorld('bridge', bridge);

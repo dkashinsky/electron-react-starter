@@ -1,25 +1,14 @@
-const { app, BrowserWindow } = require('electron');
-const { resolve } = require('path');
-
-const createWindow = () => {
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: resolve(__dirname, '../preload/index.js'),
-    },
-  });
-
-  //mainWindow.loadFile(resolve(__dirname, './ui/index.html'));
-  mainWindow.loadURL('http://localhost:3000');
-};
+const { app } = require('electron');
+const { createMainWindow } = require('./main-window');
+const { registerEventHandlers } = require('./event-handlers');
 
 app.whenReady().then(() => {
-  createWindow();
+  registerEventHandlers();
+  createMainWindow();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      createMainWindow();
     }
   });
 });
